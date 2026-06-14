@@ -28,11 +28,32 @@ python -m http.server 8765
 # 打开 http://localhost:8765/
 ```
 
-## 部署 (静态托管)
-把整个 `game/` 目录上传到任意静态空间即可（Netlify / Vercel / GitHub Pages / Nginx / 对象存储 CDN）：
-- 入口文件：`index.html`
-- 确保 `assets/` 一同上传；服务器需对 `.m4a` 返回 `audio/mp4`、`.mp3` 返回 `audio/mpeg`。
-- 全部为静态文件，无需后端。首屏有加载进度条，资源约 6.4 MB。
+## 部署到 GitHub Pages
+
+本目录已是一个 git 仓库（站点文件在仓库根目录），并自带
+`.github/workflows/deploy.yml` 自动部署流水线。只需推送到 GitHub 即可上线。
+
+### 步骤
+1. 在 GitHub 网页新建一个**空仓库**（不要勾选 README/.gitignore），例如 `zxf-cool`。
+2. 在本目录 `game/` 下执行（把 `<你的用户名>/<仓库名>` 换成你的）：
+   ```bash
+   git remote add origin https://github.com/<你的用户名>/<仓库名>.git
+   git push -u origin main
+   ```
+3. 打开仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。
+4. 回到 **Actions** 标签，等 “Deploy to GitHub Pages” 跑完（约 1 分钟）。
+5. 访问 `https://<你的用户名>.github.io/<仓库名>/` 即可游玩。
+
+> 之后每次 `git push` 都会自动重新部署。
+>
+> 备选（不想用 Actions）：Settings → Pages → Source 选 **Deploy from a branch → main / (root)**，
+> 仓库已含 `.nojekyll`，静态文件会原样发布，效果相同。
+
+所有资源路径均为相对路径，因此放在 `用户名.github.io/仓库名/` 子路径下也能正常加载。
+服务器对 `.m4a` 会返回 `audio/mp4`、`.mp3` 返回 `audio/mpeg`，GitHub Pages 默认已正确处理。
+
+## 其它静态托管
+把整个目录上传到任意静态空间亦可（Netlify / Vercel / Nginx / 对象存储 CDN），入口 `index.html`，无需后端。首屏有加载进度条，资源约 6.4 MB。
 
 > 调试：在 URL 加 `?dev=1` 可启用 `window.__zxfDev`（forceFever / forceOver / info），正常游玩无副作用。
 
