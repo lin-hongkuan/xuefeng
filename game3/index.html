@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#05020f" />
+  <title>张雪峰 · 霓虹弹弹弹</title>
+  <link rel="stylesheet" href="style.css?v=1" />
+</head>
+<body>
+  <div id="stage" class="stage">
+    <canvas id="game"></canvas>
+
+    <div id="hud" class="hud hidden">
+      <div class="hud-top">
+        <div class="hud-left">
+          <div id="balls" class="balls" aria-label="剩余球"></div>
+          <div id="comboChip" class="combo-chip hidden"><span id="comboNum">2</span><small>连击</small></div>
+        </div>
+        <div class="hud-right">
+          <div class="score-wrap">
+            <div id="score" class="score">0</div>
+            <div id="best" class="best">最高 0 · 第1关</div>
+          </div>
+          <button id="pauseBtn" class="icon-btn" type="button" aria-label="暂停">❚❚</button>
+          <button id="muteBtn" class="icon-btn" type="button" aria-label="静音">♪</button>
+        </div>
+      </div>
+      <div id="tapHint" class="tap-hint">拖动底部挡板 · 点击发射</div>
+    </div>
+
+    <div id="banner" class="banner"></div>
+
+    <div id="loadingScreen" class="overlay overlay--solid">
+      <div class="brand">
+        <div class="brand-kicker">霓虹之夜 · 弹球打砖块</div>
+        <h1 class="brand-title">张雪峰<span class="dot">·</span>霓虹弹弹弹</h1>
+      </div>
+      <div class="loader">
+        <div class="loader-track"><div id="loaderFill" class="loader-fill"></div></div>
+        <div id="loaderText" class="loader-text">素材加载中… 0%</div>
+      </div>
+    </div>
+
+    <div id="titleScreen" class="overlay hidden">
+      <div class="panel">
+        <div class="brand">
+          <div class="brand-kicker">霓虹之夜 · 弹球打砖块</div>
+          <h1 class="brand-title">张雪峰<span class="dot">·</span>霓虹弹弹弹</h1>
+        </div>
+        <ul class="howto">
+          <li><span class="ic ic-cut">▭</span><b>拖动</b>挡板接住弹球，砸碎所有<b>霓虹砖</b></li>
+          <li><span class="ic ic-letter">★</span>接住掉落的<b>雪碧/通知书</b>触发加宽、慢放、多球</li>
+          <li><span class="ic ic-bomb">✘</span>躲开<b>天坑炸弹</b>掉落物，接到会缩小挡板</li>
+          <li><span class="ic ic-cool">◎</span>球别漏掉！3 球用完即结束，过关进下一波</li>
+        </ul>
+        <button id="startBtn" class="primary-btn" type="button">发 射 弹 球</button>
+        <div class="title-foot">
+          <span id="titleBest">最高 0</span>
+          <button id="titleMuteBtn" class="text-btn" type="button">🔊 音乐：开</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="pauseScreen" class="overlay hidden">
+      <div class="panel panel--compact">
+        <h2 class="panel-title">已暂停</h2>
+        <button id="resumeBtn" class="primary-btn" type="button">继续</button>
+        <button id="restartFromPauseBtn" class="ghost-btn" type="button">重新开始</button>
+        <button id="pauseMuteBtn" class="text-btn" type="button">🔊 音乐：开</button>
+      </div>
+    </div>
+
+    <div id="overScreen" class="overlay hidden">
+      <div class="panel">
+        <h2 class="panel-title">游戏结束</h2>
+        <div class="result">
+          <div class="result-score"><small>得分</small><b id="finalScore">0</b></div>
+          <div class="result-row">
+            <div><small>最高分</small><b id="finalBest">0</b></div>
+            <div><small>到达关卡</small><b id="finalLevel">1</b></div>
+          </div>
+        </div>
+        <div id="quote" class="quote">“反弹人生，稳准狠！”</div>
+        <button id="againBtn" class="primary-btn" type="button">再 来 一 局</button>
+        <button id="homeBtn" class="ghost-btn" type="button">回到首页</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="bgm" src="assets/bgm.m4a" loop preload="auto"></audio>
+  <audio id="deathSfx" src="assets/death.mp3" preload="auto"></audio>
+  <script src="game.js?v=1"></script>
+</body>
+</html>

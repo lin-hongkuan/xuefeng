@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0a1f" />
+  <title>张雪峰 · 透心凉游戏厅</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+    html,body{min-height:100%;background:#08071a;color:#fff;
+      font-family:"PingFang SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+      -webkit-font-smoothing:antialiased;}
+    body{padding:calc(env(safe-area-inset-top,0px) + 26px) 18px calc(env(safe-area-inset-bottom,0px) + 30px);
+      background:radial-gradient(120% 70% at 50% 0%,#241a4d 0%,#120f2e 55%,#08071a 100%);min-height:100vh;}
+    .wrap{max-width:520px;margin:0 auto;}
+    .head{text-align:center;margin-bottom:26px;}
+    .kick{font-size:12px;letter-spacing:4px;color:#7fe6d2;font-weight:800;text-transform:uppercase;margin-bottom:10px;}
+    h1{font-size:clamp(28px,8vw,42px);font-weight:900;line-height:1.1;
+      background:linear-gradient(180deg,#fff,#bfefff 55%,#9b5cff);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .sub{margin-top:10px;font-size:13.5px;color:#b9c4e6;line-height:1.5;}
+    .sub b{color:#ffd23f;}
+    .grid{display:grid;gap:16px;margin-top:24px;}
+    .card{position:relative;display:flex;align-items:center;gap:16px;padding:18px;border-radius:20px;overflow:hidden;
+      text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 16px 40px rgba(0,0,0,.45);transition:transform .15s ease, box-shadow .2s ease;}
+    .card:active{transform:scale(.98);}
+    .card .thumb{flex:0 0 84px;width:84px;height:84px;border-radius:16px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .card .thumb img{width:100%;height:100%;object-fit:contain;}
+    .card .body{flex:1;min-width:0;}
+    .card .tag{font-size:11px;font-weight:800;letter-spacing:1px;opacity:.85;text-transform:uppercase;}
+    .card .name{font-size:21px;font-weight:900;margin:3px 0 5px;}
+    .card .desc{font-size:12.5px;line-height:1.45;opacity:.86;}
+    .card .go{flex:0 0 auto;font-size:22px;font-weight:900;opacity:.7;}
+    /* themed cards */
+    .c1{background:linear-gradient(135deg,#15455d,#0c2433);}
+    .c1 .thumb{background:linear-gradient(135deg,#5fe9d2,#36b6ff);}
+    .c1 .tag{color:#7fe6d2;}
+    .c2{background:linear-gradient(135deg,#3a1a63,#1d1140);}
+    .c2 .thumb{background:linear-gradient(135deg,#ff4d8d,#ffd23f);image-rendering:pixelated;}
+    .c2 .tag{color:#ffd23f;}
+    .c2 .name{text-shadow:2px 2px 0 #000;}
+    .c3{background:linear-gradient(135deg,#1a0a3a,#0a0420);}
+    .c3 .thumb{background:radial-gradient(circle at 50% 40%,#2a1255,#0a0420);}
+    .c3 .tag{color:#26f0ff;}
+    .c3 .name{text-shadow:0 0 12px rgba(38,240,255,.6);}
+    .foot{margin-top:26px;text-align:center;font-size:11.5px;color:#8b93b8;line-height:1.6;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <div class="kick">夏日限定 · 三种玩法</div>
+      <h1>张雪峰 · 透心凉游戏厅</h1>
+      <p class="sub">同一组主角 —— <b>张雪峰 / 雪碧 / 巧乐兹</b> 与原版背景音乐，<br/>三种<b>完全不同</b>的玩法与美术风格，任选一款开玩。</p>
+    </div>
+
+    <div class="grid">
+      <a class="card c1" href="game/index.html">
+        <div class="thumb"><img src="game/assets/zhang-mc.png" alt="" loading="lazy"/></div>
+        <div class="body">
+          <div class="tag">夏日卡通 · 切水果</div>
+          <div class="name">透心凉大作战</div>
+          <div class="desc">滑动挥刀切雪碧巧乐兹，攒满透心凉爆发 FEVER。</div>
+        </div>
+        <div class="go">›</div>
+      </a>
+
+      <a class="card c2" href="game2/index.html">
+        <div class="thumb"><img src="game2/assets/zhang-idle.png" alt="" loading="lazy"/></div>
+        <div class="body">
+          <div class="tag">16-bit 像素 · 叠塔</div>
+          <div class="name">透心凉叠叠乐</div>
+          <div class="desc">复古街机风，一拍即合叠高塔，完美对齐拿连击。</div>
+        </div>
+        <div class="go">›</div>
+      </a>
+
+      <a class="card c3" href="game3/index.html">
+        <div class="thumb"><img src="game3/assets/neon-zhang.png" alt="" loading="lazy"/></div>
+        <div class="body">
+          <div class="tag">霓虹赛博 · 打砖块</div>
+          <div class="name">霓虹弹弹弹</div>
+          <div class="desc">拖板反弹霓虹球，多球慢放轰炸，一关比一关猛。</div>
+        </div>
+        <div class="go">›</div>
+      </a>
+    </div>
+
+    <div class="foot">背景音乐复用自原站 · 建议在手机上竖屏游玩 🎧</div>
+  </div>
+</body>
+</html>

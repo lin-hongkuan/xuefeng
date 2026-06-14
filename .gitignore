@@ -1,0 +1,15 @@
+# reference material from original site (not part of the deployed games)
+orig.js
+orig.css
+zxf.html
+orig_assets/
+ref/
+# local test artifacts
+**/shot-*.png
+**/g2-*.png
+**/g3-*.png
+**/pwtest*.js
+**/pwdesktop.js
+*.log
+.DS_Store
+Thumbs.db
