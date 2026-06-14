@@ -1,0 +1,7 @@
+# local test artifacts
+shot-*.png
+pwtest*.js
+pwdesktop.js
+*.log
+.DS_Store
+Thumbs.db
