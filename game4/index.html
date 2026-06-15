@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#23392e" />
+  <title>张雪峰 · 神点拨</title>
+  <link rel="stylesheet" href="style.css?v=1" />
+</head>
+<body>
+  <div id="stage" class="stage">
+    <canvas id="game"></canvas>
+
+    <div id="hud" class="hud hidden">
+      <div class="hud-top">
+        <div class="hud-left">
+          <div id="comboChip" class="combo-chip hidden"><span id="comboNum">2</span><small>连击</small></div>
+        </div>
+        <div class="hud-right">
+          <div class="score-wrap">
+            <div id="score" class="score">0</div>
+            <div id="best" class="best">最高 0</div>
+          </div>
+          <button id="pauseBtn" class="icon-btn" type="button" aria-label="暂停">❚❚</button>
+          <button id="muteBtn" class="icon-btn" type="button" aria-label="静音">♪</button>
+        </div>
+      </div>
+      <div class="cool-wrap">
+        <div class="cool-label">耐心</div>
+        <div class="cool-track"><div id="patienceFill" class="cool-fill"></div></div>
+      </div>
+      <div id="tapHint" class="tap-hint">点一下迷茫的同学，金句点醒他！</div>
+    </div>
+
+    <div id="banner" class="banner"></div>
+
+    <div id="loadingScreen" class="overlay overlay--solid">
+      <div class="brand">
+        <div class="brand-kicker">课堂答疑 · 金句点醒</div>
+        <h1 class="brand-title">张雪峰<span class="dot">·</span>神点拨</h1>
+      </div>
+      <div class="loader">
+        <div class="loader-track"><div id="loaderFill" class="loader-fill"></div></div>
+        <div id="loaderText" class="loader-text">素材加载中… 0%</div>
+      </div>
+    </div>
+
+    <div id="titleScreen" class="overlay hidden">
+      <div class="panel">
+        <div class="brand">
+          <div class="brand-kicker">课堂答疑 · 金句点醒</div>
+          <h1 class="brand-title">张雪峰<span class="dot">·</span>神点拨</h1>
+        </div>
+        <ul class="howto">
+          <li><span class="ic ic-cut">✦</span><b>点</b>迷茫的同学 → 一句话<b>点醒</b>，还会<b>连锁</b>点醒旁边的人</li>
+          <li><span class="ic ic-cool">◔</span>同学走到讲台没被点醒，<b>耐心</b>会掉，掉光就下课</li>
+          <li><span class="ic ic-letter">✦</span><b>雪碧</b>=全场清醒；<b>巧乐兹</b>=慢放+双倍</li>
+          <li><span class="ic ic-bomb">✘</span>别点<b>天坑炸弹</b>！点了直接掉耐心</li>
+        </ul>
+        <button id="startBtn" class="primary-btn" type="button">上 课 啦</button>
+        <div class="title-foot">
+          <span id="titleBest">最高 0</span>
+          <button id="titleMuteBtn" class="text-btn" type="button">🔊 音乐：开</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="pauseScreen" class="overlay hidden">
+      <div class="panel panel--compact">
+        <h2 class="panel-title">课间休息</h2>
+        <button id="resumeBtn" class="primary-btn" type="button">继续上课</button>
+        <button id="restartFromPauseBtn" class="ghost-btn" type="button">重新开始</button>
+        <button id="pauseMuteBtn" class="text-btn" type="button">🔊 音乐：开</button>
+      </div>
+    </div>
+
+    <div id="overScreen" class="overlay hidden">
+      <div class="panel">
+        <h2 class="panel-title">下课了！</h2>
+        <div class="result">
+          <div class="result-score"><small>点醒</small><b id="finalScore">0</b><small>人次</small></div>
+          <div class="result-row">
+            <div><small>最高分</small><b id="finalBest">0</b></div>
+            <div><small>最强连锁</small><b id="finalChain">0</b></div>
+          </div>
+        </div>
+        <div id="quote" class="quote">“想通了没？没想通再来一节课！”</div>
+        <button id="againBtn" class="primary-btn" type="button">再 上 一 节</button>
+        <button id="homeBtn" class="ghost-btn" type="button">回到首页</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="bgm" src="assets/bgm.m4a" loop preload="auto"></audio>
+  <audio id="deathSfx" src="assets/death.mp3" preload="auto"></audio>
+  <script src="game.js?v=1"></script>
+</body>
+</html>
